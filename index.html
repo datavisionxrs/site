@@ -1,0 +1,570 @@
+import React, { useState, useEffect } from 'react';
+import { 
+  BarChart3, 
+  BrainCircuit, 
+  ChevronDown, 
+  ChevronRight, 
+  Database, 
+  FileCheck, 
+  Globe, 
+  Instagram, 
+  LayoutDashboard, 
+  Linkedin, 
+  MessageCircle, 
+  Search, 
+  TrendingUp, 
+  Zap,
+  CheckCircle2,
+  Clock,
+  Mail
+} from 'lucide-react';
+
+const App = () => {
+  const [activeCase, setActiveCase] = useState(null);
+  const [isScrolled, setIsScrolled] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
+  // Configurações Globais
+  const WHATSAPP_URL = "https://wa.me/5551982805652";
+  const EMAIL_ADDRESS = "datavvisionx@gmail.com";
+  const FOUNDER_PHOTO = "https://media.licdn.com/dms/image/v2/D4D03AQHgRyE3wtSwhQ/profile-displayphoto-crop_800_800/B4DZxAEgBfI4AI-/0/1770601450012?e=1772668800&v=beta&t=h52XMl7OzabwR-vzQnKyGCDVSnDgG2oyWv1IS9tNAV8";
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 50);
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  // Função robusta para abrir e-mail sem recarregar a página
+  const triggerEmail = (e) => {
+    if (e) {
+      e.preventDefault();
+      e.stopPropagation();
+    }
+    // Usar um link temporário oculto é a forma mais segura de evitar navegação indesejada
+    const mailtoLink = document.createElement('a');
+    mailtoLink.href = `mailto:${EMAIL_ADDRESS}`;
+    mailtoLink.click();
+  };
+
+  const cases = [
+    {
+      id: 1,
+      title: "Liko Química",
+      challenge: "Baixa visibilidade sobre eficiência produtiva e dados dispersos em planilhas manuais, dificultando identificação de gargalos.",
+      solution: "BI automatizado para indicadores de produtividade por lote, tempo produtivo vs. parado e integração completa às OPs.",
+      results: "Redução no tempo de consolidação, aumento na precisão de gargalos e ganho expressivo na produtividade média."
+    },
+    {
+      id: 2,
+      title: "Açoriana Alimentos",
+      challenge: "Dificuldade na análise de desempenho comercial, logístico e de margens devido a dados descentralizados.",
+      solution: "BI conectado ao ERP com foco em rotas, controle de clientes e automação total de relatórios.",
+      results: "Redução de 80% no tempo de relatórios e identificação de centenas de novos clientes potenciais."
+    },
+    {
+      id: 3,
+      title: "Grupo Argenta",
+      challenge: "Consolidação comercial e financeira complexa entre múltiplas filiais e excesso de processos manuais.",
+      solution: "Dashboards de margem, rotas e DRE gerencial unificando todas as filiais em um único ambiente.",
+      results: "Fechamento mensal 70% mais rápido e decisões 40% mais ágeis."
+    },
+    {
+      id: 4,
+      title: "Sanremo (Grupo InBetta)",
+      challenge: "Necessidade de melhorar a competitividade e visibilidade sobre tendências de mercado.",
+      solution: "Sistema de Inteligência de Mercado com BI focado em análise de concorrência e segmentação de portfólio.",
+      results: "Relatórios 60% mais rápidos e maior assertividade no desenvolvimento de novos produtos."
+    },
+    {
+      id: 5,
+      title: "Grupo Priority",
+      challenge: "Necessidade de mapeamento preciso de preços e concorrência para suporte estratégico.",
+      solution: "Estruturação de BI para Inteligência de Mercado com automação de pesquisas e painéis analíticos.",
+      results: "Redução de 55% no tempo de relatórios e 30% mais precisão nas análises comerciais."
+    },
+    {
+      id: 6,
+      title: "Grendene S/A",
+      challenge: "Monitoramento de tendências e desempenho de marcas a partir de múltiplas fontes complexas.",
+      solution: "Modelo de inteligência competitiva em BI com ciclo de vida de produtos e previsões de demanda.",
+      results: "Previsões 20% mais precisas e identificação de novos nichos de mercado."
+    }
+  ];
+
+  const services = [
+    { icon: <Search className="w-8 h-8" />, title: "Diagnóstico de Dados", desc: "Avaliamos fontes e estrutura dos dados para identificar gargalos e mapear melhorias." },
+    { icon: <TrendingUp className="w-8 h-8" />, title: "KPIs Estratégicos", desc: "Definimos indicadores claros que conectam estratégia, operação e metas de desempenho." },
+    { icon: <LayoutDashboard className="w-8 h-8" />, title: "Dashboards Inteligentes", desc: "Criamos painéis interativos no Power BI com dados atualizados e leitura intuitiva." },
+    { icon: <Zap className="w-8 h-8" />, title: "Automação de Dados", desc: "Eliminamos processos manuais integrando ERP, CRM e planilhas com atualização automática." },
+    { icon: <FileCheck className="w-8 h-8" />, title: "Governança de Dados", desc: "Estruturamos regras e padrões que garantem dados confiáveis, auditáveis e seguros." },
+    { icon: <BrainCircuit className="w-8 h-8" />, title: "Insights e IA", desc: "Aplicamos inteligência de mercado e análises preditivas para orientar decisões estratégicas." },
+  ];
+
+  const plans = [
+    {
+      name: "Plano Clareza",
+      tagline: "Comece com dados que fazem sentido",
+      duration: "60–90 dias",
+      features: [
+        "1 painel Power BI (área única)",
+        "KPIs essenciais de desempenho",
+        "Conexão com até 2 fontes de dados",
+        "Atualização manual orientada",
+        "Dicionário de métricas claro",
+        "Workshop de uso (2h)",
+        "Suporte mensal (8h)"
+      ],
+      popular: false
+    },
+    {
+      name: "Plano Previsão",
+      tagline: "Transforme dados em previsibilidade",
+      duration: "90–120 dias",
+      features: [
+        "3 a 5 painéis integrados",
+        "KPIs estratégicos (ROI, LTV, CAC)",
+        "Indicadores operacionais avançados",
+        "Relatório mensal inteligente",
+        "Treinamento contínuo (16h/mês)",
+        "Análise automatizada de performance",
+        "Foco em ação preventiva"
+      ],
+      popular: true
+    },
+    {
+      name: "Plano Inteligência",
+      tagline: "Dados como vantagem competitiva",
+      duration: "90–150 dias",
+      features: [
+        "Ambiente único (Data Hub)",
+        "6 a 10 dashboards estratégicos",
+        "Modelos de IA sob medida",
+        "Métricas financeiras avançadas",
+        "Playbooks de gestão orientada",
+        "Consultoria contínua (32h/mês)",
+        "Decisão guiada por dados"
+      ],
+      popular: false
+    }
+  ];
+
+  const scrollTo = (id) => {
+    const el = document.getElementById(id);
+    if (el) {
+      el.scrollIntoView({ behavior: 'smooth' });
+      setMobileMenuOpen(false);
+    }
+  };
+
+  return (
+    <div className="min-h-screen bg-slate-50 font-sans text-slate-900 scroll-smooth">
+      {/* Navegação */}
+      <nav className={`fixed w-full z-50 transition-all duration-300 ${isScrolled ? 'bg-white/90 backdrop-blur-md shadow-md py-3' : 'bg-transparent py-5'}`}>
+        <div className="max-w-7xl mx-auto px-6 flex justify-between items-center">
+          <div className="flex items-center space-x-2">
+            <div className="w-10 h-10 bg-blue-600 rounded-lg flex items-center justify-center text-white font-black text-xs">DVX</div>
+            <span className="text-xl font-black tracking-tight text-blue-900 uppercase">DATAVISION<span className="text-blue-600">X</span></span>
+          </div>
+          
+          <div className="hidden md:flex space-x-8 items-center font-medium text-sm">
+            <button onClick={() => scrollTo('home')} className="hover:text-blue-600 transition-colors uppercase tracking-wider">Home</button>
+            <button onClick={() => scrollTo('sobre')} className="hover:text-blue-600 transition-colors uppercase tracking-wider">Sobre</button>
+            <button onClick={() => scrollTo('cases')} className="hover:text-blue-600 transition-colors uppercase tracking-wider">Cases</button>
+            <button onClick={() => scrollTo('servicos')} className="hover:text-blue-600 transition-colors uppercase tracking-wider">Serviços</button>
+            <button onClick={() => scrollTo('metodo')} className="hover:text-blue-600 transition-colors uppercase tracking-wider">Método</button>
+            <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="bg-blue-600 text-white px-5 py-2 rounded-full hover:bg-blue-700 transition-all flex items-center gap-2 font-bold">
+              <MessageCircle size={18} /> CONTACTO
+            </a>
+          </div>
+
+          <button className="md:hidden" onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
+            <div className="w-6 h-0.5 bg-slate-800 mb-1.5"></div>
+            <div className="w-6 h-0.5 bg-slate-800 mb-1.5"></div>
+            <div className="w-6 h-0.5 bg-slate-800"></div>
+          </button>
+        </div>
+
+        {/* Menu Mobile */}
+        {mobileMenuOpen && (
+          <div className="md:hidden bg-white border-t border-slate-100 p-6 flex flex-col space-y-4 shadow-xl">
+            <button onClick={() => scrollTo('home')} className="text-left text-lg font-medium">Home</button>
+            <button onClick={() => scrollTo('sobre')} className="text-left text-lg font-medium">Sobre</button>
+            <button onClick={() => scrollTo('cases')} className="text-left text-lg font-medium">Cases</button>
+            <button onClick={() => scrollTo('servicos')} className="text-left text-lg font-medium">Serviços</button>
+            <button onClick={() => scrollTo('metodo')} className="text-left text-lg font-medium">Método</button>
+            <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="bg-blue-600 text-white px-5 py-3 rounded-xl flex items-center justify-center gap-2 font-bold uppercase">
+              <MessageCircle size={20} /> Agendar Diagnóstico
+            </a>
+          </div>
+        )}
+      </nav>
+
+      {/* Hero Section */}
+      <section id="home" className="relative pt-40 pb-24 overflow-hidden bg-gradient-to-br from-slate-900 via-blue-900 to-slate-900 text-white">
+        <div className="max-w-7xl mx-auto px-6 relative z-10 flex flex-col items-center text-center">
+          <div className="inline-block px-4 py-1.5 bg-blue-500/20 rounded-full text-blue-300 text-xs font-bold mb-6 border border-blue-500/30 uppercase tracking-widest">
+            Inteligência Estratégica & BI
+          </div>
+          <h1 className="text-4xl md:text-7xl font-black mb-6 leading-tight max-w-5xl uppercase tracking-tighter text-balance">
+            Transforme dados em <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-300 italic">crescimento previsível</span>
+          </h1>
+          <p className="text-lg md:text-xl text-slate-300 mb-10 max-w-3xl leading-relaxed font-medium">
+            Consultoria e implementação de BI que transforma números em decisões inteligentes, com painéis práticos para quem precisa decidir rápido.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-5 mb-12">
+            <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="bg-white text-blue-900 px-10 py-5 rounded-full font-black text-lg hover:shadow-2xl hover:scale-105 transition-all uppercase tracking-tight">
+              Quero agendar um diagnóstico
+            </a>
+            <button onClick={() => scrollTo('servicos')} className="bg-blue-800/40 text-white border border-white/20 px-10 py-5 rounded-full font-black text-lg hover:bg-blue-800/60 transition-all uppercase tracking-tight">
+              Conhecer serviços
+            </button>
+          </div>
+          <p className="text-sm text-blue-200/60 flex items-center gap-2 font-medium">
+            <CheckCircle2 size={16} className="text-blue-400" /> Método validado por empresas em crescimento
+          </p>
+        </div>
+      </section>
+
+      {/* Empresas impactadas */}
+      <section className="py-16 bg-white border-b border-slate-100 font-bold">
+        <div className="max-w-7xl mx-auto px-6">
+          <p className="text-center text-slate-400 text-xs uppercase tracking-[0.3em] mb-10">Impacto Real no Mercado</p>
+          <div className="flex flex-wrap justify-center items-center gap-10 md:gap-20 opacity-40 grayscale hover:grayscale-0 transition-all duration-700 text-slate-900">
+            <span className="text-xl md:text-3xl font-black italic tracking-tighter">GRENDENE</span>
+            <span className="text-xl md:text-3xl font-black italic tracking-tighter">SANREMO</span>
+            <span className="text-xl md:text-3xl font-black italic tracking-tighter">AÇORIANA</span>
+            <span className="text-xl md:text-3xl font-black italic tracking-tighter">LIKO</span>
+            <span className="text-xl md:text-3xl font-black italic tracking-tighter">PRIORITY</span>
+            <span className="text-xl md:text-3xl font-black italic tracking-tighter">ARGENTA</span>
+          </div>
+        </div>
+      </section>
+
+      {/* Sobre o Fundador */}
+      <section id="sobre" className="py-28 bg-slate-50">
+        <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center gap-20">
+          <div className="w-full md:w-5/12">
+            <div className="relative group">
+              <div className="absolute -inset-4 bg-gradient-to-tr from-blue-600 to-cyan-500 rounded-3xl blur opacity-20 group-hover:opacity-40 transition-all duration-500"></div>
+              <div className="relative bg-white aspect-[4/5] rounded-2xl overflow-hidden shadow-2xl border border-white/50">
+                <img 
+                  src={FOUNDER_PHOTO} 
+                  alt="Alberto Rossi - DataVisionX" 
+                  className="w-full h-full object-cover object-center filter contrast-[1.02] brightness-[1.02]"
+                />
+                <div className="absolute bottom-0 left-0 w-full p-8 bg-gradient-to-t from-slate-900/90 via-slate-900/40 to-transparent text-center">
+                  <p className="text-white font-black text-xl uppercase tracking-tight">Alberto Rossi</p>
+                  <p className="text-blue-300 text-sm font-bold uppercase tracking-widest">Fundador DataVisionX</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className="w-full md:w-7/12">
+            <span className="text-blue-600 font-black uppercase tracking-widest text-sm">Sobre o Fundador</span>
+            <h2 className="text-5xl font-black mt-2 mb-8 text-slate-900 leading-[1.1] uppercase tracking-tighter">Alberto Rossi</h2>
+            <div className="space-y-6 text-slate-600 leading-relaxed text-lg font-medium">
+              <p>
+                Fundador da <strong>DataVisionX</strong>, consultor especializado em Business Intelligence (BI) e Inteligência de Mercado (IM). 
+              </p>
+              <p>
+                Ajudamos empresas a conectar tecnologia, estratégia e resultados reais através de uma visão clara sobre os seus dados.
+              </p>
+              <p>
+                Mestre em Gestão Tecnológica, graduado em Administração e atualmente cursando MBA em <strong>IA para Negócios</strong>.
+              </p>
+            </div>
+            
+            <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 gap-5 text-sm font-bold">
+              {["Power BI para Gestão", "Modelagem de Dados", "Estratégia de Negócios", "Automação de Dashboards"].map((skill, i) => (
+                <div key={i} className="bg-white p-5 rounded-2xl shadow-sm border border-slate-200/60 flex items-center gap-4 group hover:border-blue-300 transition-colors">
+                  <CheckCircle2 className="text-blue-600 flex-shrink-0 group-hover:scale-110 transition-transform" size={24} />
+                  <span className="text-slate-700">{skill}</span>
+                </div>
+              ))}
+            </div>
+
+            <div className="mt-12 flex flex-col sm:flex-row sm:items-center gap-8">
+               <a href="http://linkedin.com/in/alberto-rossi-13839125" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-3 text-blue-700 font-black text-lg hover:text-blue-900 transition-colors uppercase tracking-tight">
+                 <Linkedin size={24} /> LinkedIn
+               </a>
+               <p className="text-slate-400 italic text-sm md:border-l md:pl-8 border-slate-200 font-medium max-w-xs leading-relaxed">
+                 “A inteligência de dados só tem valor quando ajuda as pessoas a decidir melhor.”
+               </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Cases Section */}
+      <section id="cases" className="py-28 bg-white">
+        <div className="max-w-5xl mx-auto px-6 text-center mb-20">
+          <span className="text-blue-600 font-black uppercase tracking-widest text-sm">Cases de Sucesso</span>
+          <h2 className="text-5xl font-black mt-2 text-slate-900 tracking-tighter">RESULTADOS REAIS</h2>
+          <p className="text-slate-500 mt-5 text-xl font-medium max-w-2xl mx-auto">Transformamos dados em ativos estratégicos que impulsionam o lucro.</p>
+        </div>
+
+        <div className="max-w-4xl mx-auto px-6 space-y-5">
+          {cases.map((item) => (
+            <div key={item.id} className={`border rounded-2xl overflow-hidden transition-all duration-500 ${activeCase === item.id ? 'border-blue-200 shadow-2xl ring-1 ring-blue-100' : 'border-slate-100 hover:border-slate-200 shadow-sm'}`}>
+              <button 
+                onClick={() => setActiveCase(activeCase === item.id ? null : item.id)}
+                className="w-full flex items-center justify-between p-7 text-left bg-white transition-colors"
+              >
+                <span className={`text-2xl font-black tracking-tight ${activeCase === item.id ? 'text-blue-700' : 'text-slate-800'}`}>{item.title}</span>
+                <div className={`transition-transform duration-500 ${activeCase === item.id ? 'rotate-180 bg-blue-100' : 'bg-slate-50'} p-2 rounded-full`}>
+                  <ChevronDown className={activeCase === item.id ? 'text-blue-600' : 'text-slate-400'} size={20} />
+                </div>
+              </button>
+              
+              <div className={`overflow-hidden transition-all duration-500 ease-in-out ${activeCase === item.id ? 'max-h-[800px] opacity-100 pb-10 px-7' : 'max-h-0 opacity-0'}`}>
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-6 pt-6 border-t border-slate-50">
+                  <div className="p-6 bg-slate-50 rounded-2xl border border-slate-100">
+                    <p className="text-[10px] font-black text-slate-400 uppercase tracking-[0.2em] mb-4 flex items-center gap-2">DESAFIO</p>
+                    <p className="text-slate-600 text-sm font-medium leading-relaxed">{item.challenge}</p>
+                  </div>
+                  <div className="p-6 bg-blue-50/50 rounded-2xl border border-blue-100/50">
+                    <p className="text-[10px] font-black text-blue-400 uppercase tracking-[0.2em] mb-4 flex items-center gap-2">SOLUÇÃO</p>
+                    <p className="text-slate-600 text-sm font-medium leading-relaxed">{item.solution}</p>
+                  </div>
+                  <div className="p-6 bg-green-50/50 rounded-2xl border border-green-100/50">
+                    <p className="text-[10px] font-black text-green-500 uppercase tracking-[0.2em] mb-4 flex items-center gap-2 text-pretty">RESULTADOS</p>
+                    <p className="text-slate-600 text-sm font-black leading-relaxed">{item.results}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* Grid de Serviços */}
+      <section id="servicos" className="py-28 bg-slate-900 text-white">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="text-center mb-20">
+            <span className="text-blue-400 font-black uppercase tracking-widest text-sm">Nossas Entregas</span>
+            <h2 className="text-5xl font-black mt-2 tracking-tighter uppercase">Gestão Moderna</h2>
+            <p className="text-slate-400 mt-5 max-w-2xl mx-auto text-xl font-medium">Construímos o ecossistema de dados necessário para uma tomada de decisão rápida e assertiva.</p>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {services.map((item, idx) => (
+              <div key={idx} className="bg-slate-800/40 p-10 rounded-3xl border border-white/5 hover:border-blue-500/50 transition-all hover:bg-slate-800 group shadow-lg">
+                <div className="text-blue-400 mb-8 group-hover:scale-110 group-hover:text-blue-300 transition-all inline-block">{item.icon}</div>
+                <h3 className="text-2xl font-black mb-4 uppercase tracking-tight">{item.title}</h3>
+                <p className="text-slate-400 text-sm font-medium leading-relaxed">{item.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Methodology Section */}
+      <section id="metodo" className="py-28 bg-slate-50">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="flex flex-col md:flex-row gap-20 items-center">
+            <div className="w-full md:w-1/2">
+               <span className="text-blue-600 font-black uppercase tracking-widest text-sm">Metodologia</span>
+               <h2 className="text-5xl font-black mt-2 mb-8 text-slate-900 uppercase tracking-tighter text-balance">O Método DataVisionX</h2>
+               <p className="text-slate-600 mb-10 text-xl font-medium leading-relaxed">
+                 Um processo estruturado de ponta a ponta para transformar a confusão de dados em inteligência competitiva.
+               </p>
+               
+               <div className="space-y-10">
+                 {[
+                   { step: "01", title: "Diagnóstico", desc: "Mapeamento de OKRs/KPIs estratégicos e inventário de fontes." },
+                   { step: "02", title: "Arquitetura & Dados", desc: "Limpeza, padronização e criação dos pipelines seguros de dados." },
+                   { step: "03", title: "Dashboards & IA", desc: "Prototipação com feedbacks quinzenais e aplicação de modelos preditivos." },
+                   { step: "04", title: "Treino & Adoção", desc: "Workshop de utilização e plano de evolução contínua." }
+                 ].map((item, idx) => (
+                   <div key={idx} className="flex gap-8 items-start group">
+                     <div className="bg-blue-600 text-white w-14 h-14 rounded-2xl flex-shrink-0 flex items-center justify-center font-black text-xl shadow-blue-300/40 shadow-xl group-hover:scale-110 transition-transform italic">
+                       {item.step}
+                     </div>
+                     <div>
+                       <h4 className="font-black text-slate-800 text-xl mb-2 uppercase tracking-tight">{item.title}</h4>
+                       <p className="text-slate-500 text-base font-medium leading-relaxed">{item.desc}</p>
+                     </div>
+                   </div>
+                 ))}
+               </div>
+            </div>
+            <div className="w-full md:w-1/2">
+               <div className="bg-white p-12 rounded-[3rem] shadow-[0_32px_64px_-16px_rgba(0,0,0,0.1)] relative z-10 border border-slate-100">
+                 <div className="flex items-center gap-6 mb-12">
+                   <div className="w-16 h-16 bg-blue-100 rounded-3xl flex items-center justify-center text-blue-600 shadow-inner">
+                     <Clock size={32} />
+                   </div>
+                   <div>
+                     <p className="text-xs text-slate-400 font-black uppercase tracking-[0.2em] mb-1">Eficácia Temporal</p>
+                     <p className="text-slate-800 font-black text-xl tracking-tight uppercase">Implementação Ágil</p>
+                   </div>
+                 </div>
+                 <div className="space-y-10">
+                   <div className="space-y-3">
+                     <div className="flex justify-between text-[10px] font-black text-slate-400 uppercase tracking-widest">
+                       <span>Aceleração de Negócios</span>
+                       <span className="text-blue-600 font-bold uppercase tracking-tighter">Alta Performance</span>
+                     </div>
+                     <div className="h-4 bg-slate-100 rounded-full overflow-hidden shadow-inner">
+                       <div className="h-full bg-gradient-to-r from-blue-500 via-blue-600 to-indigo-700 w-[85%] animate-pulse"></div>
+                     </div>
+                   </div>
+                   <div className="grid grid-cols-2 gap-6">
+                     <div className="bg-slate-50/80 p-8 rounded-[2rem] border border-slate-100 text-center shadow-sm">
+                       <p className="text-4xl font-black text-blue-700 tracking-tighter">80%</p>
+                       <p className="text-[10px] text-slate-400 uppercase font-black mt-3 leading-tight tracking-[0.1em]">Menos Relatórios Manuais</p>
+                     </div>
+                     <div className="bg-slate-50/80 p-8 rounded-[2rem] border border-slate-100 text-center shadow-sm">
+                       <p className="text-4xl font-black text-blue-700 tracking-tighter">70%</p>
+                       <p className="text-[10px] text-slate-400 uppercase font-black mt-3 leading-tight tracking-[0.1em]">Agilidade no Fechamento</p>
+                     </div>
+                   </div>
+                 </div>
+               </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Planos */}
+      <section className="py-28 bg-white">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="text-center mb-20">
+            <span className="text-blue-600 font-black uppercase tracking-widest text-sm">Investimento Estratégico</span>
+            <h2 className="text-5xl font-black mt-2 text-slate-900 uppercase tracking-tighter">NOSSOS PLANOS</h2>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
+            {plans.map((plan, idx) => (
+              <div key={idx} className={`relative p-10 rounded-[2.5rem] flex flex-col h-full transition-all duration-500 border-2 ${plan.popular ? 'bg-slate-900 text-white shadow-3xl scale-105 z-10 border-slate-800' : 'bg-slate-50 border-slate-100 hover:border-blue-200 hover:bg-white shadow-xl'}`}>
+                {plan.popular && (
+                  <div className="absolute -top-5 left-1/2 -translate-x-1/2 bg-gradient-to-r from-blue-600 to-blue-500 text-white px-8 py-2 rounded-full text-xs font-black uppercase tracking-widest shadow-xl italic">
+                    Mais Requisitado
+                  </div>
+                )}
+                <h3 className={`text-3xl font-black mb-2 uppercase tracking-tighter ${plan.popular ? 'text-blue-400' : 'text-slate-900'}`}>{plan.name}</h3>
+                <p className={`text-sm mb-10 font-bold ${plan.popular ? 'text-slate-400' : 'text-slate-500'}`}>{plan.tagline}</p>
+                
+                <div className="flex items-center gap-4 mb-10 border-b pb-8 border-slate-200/10">
+                   <Clock size={24} className={plan.popular ? 'text-blue-400' : 'text-blue-600'} />
+                   <span className="text-xl font-black tracking-tight uppercase italic">{plan.duration}</span>
+                </div>
+
+                <ul className="space-y-5 mb-12 flex-grow">
+                  {plan.features.map((feature, fIdx) => (
+                    <li key={fIdx} className="flex gap-4 text-sm font-bold items-start leading-snug">
+                      <CheckCircle2 size={20} className={plan.popular ? 'text-blue-400 flex-shrink-0 mt-0.5' : 'text-blue-600 flex-shrink-0 mt-0.5'} />
+                      <span className={plan.popular ? 'text-slate-300' : 'text-slate-600'}>{feature}</span>
+                    </li>
+                  ))}
+                </ul>
+
+                <a 
+                  href={WHATSAPP_URL} 
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={`w-full py-5 rounded-2xl font-black text-lg uppercase tracking-tight flex items-center justify-center gap-3 transition-all shadow-lg ${plan.popular ? 'bg-blue-600 hover:bg-blue-500 text-white' : 'bg-white border-2 border-blue-600 text-blue-600 hover:bg-blue-50'}`}
+                >
+                  <MessageCircle size={22} /> Solicitar Proposta
+                </a>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Final */}
+      <section className="py-28 relative overflow-hidden">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="bg-gradient-to-br from-blue-700 via-indigo-900 to-slate-900 rounded-[4rem] p-16 md:p-28 text-white relative overflow-hidden text-center shadow-3xl border border-white/10">
+             <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-white/5 blur-[140px] rounded-full -translate-y-1/2 translate-x-1/2"></div>
+             
+             <div className="relative z-10 max-w-4xl mx-auto">
+               <h2 className="text-5xl md:text-7xl font-black mb-10 leading-none uppercase tracking-tighter">DECIDA COM <span className="text-blue-400 italic">PRECISÃO</span></h2>
+               <p className="text-xl md:text-2xl text-blue-100 mb-14 leading-relaxed font-bold max-w-2xl mx-auto text-pretty">
+                 Agende uma conversa sem compromisso e descubra o potencial estratégico oculto na sua base de dados.
+               </p>
+               <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-5 bg-white text-blue-900 px-14 py-7 rounded-full font-black text-2xl hover:shadow-2xl hover:scale-105 active:scale-95 transition-all uppercase tracking-tighter">
+                 <MessageCircle size={36} className="text-green-500" /> AGENDAR AGORA
+               </a>
+             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Rodapé */}
+      <footer className="bg-slate-50 pt-32 pb-16 border-t border-slate-200">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="flex flex-col lg:flex-row justify-between gap-20 mb-24">
+            <div className="max-w-md text-center lg:text-left">
+              <div className="flex items-center justify-center lg:justify-start space-x-3 mb-10">
+                <div className="w-12 h-12 bg-blue-600 rounded-2xl flex items-center justify-center text-white font-black shadow-blue-200 shadow-2xl italic">DVX</div>
+                <span className="text-2xl font-black tracking-tighter text-slate-900 uppercase">DATAVISION<span className="text-blue-600">X</span></span>
+              </div>
+              <p className="text-slate-500 text-lg leading-relaxed mb-10 font-bold">
+                Especialistas em Business Intelligence e crescimento previsível para empresas em expansão.
+              </p>
+              <div className="flex justify-center lg:justify-start gap-6">
+                <a href="https://www.instagram.com/datavisionxrs/" target="_blank" rel="noopener noreferrer" className="w-14 h-14 rounded-[1.25rem] bg-white shadow-xl flex items-center justify-center text-slate-400 hover:text-pink-600 hover:scale-110 transition-all border border-slate-100">
+                  <Instagram size={28} />
+                </a>
+                <a href="http://linkedin.com/in/alberto-rossi-13839125" target="_blank" rel="noopener noreferrer" className="w-14 h-14 rounded-[1.25rem] bg-white shadow-xl flex items-center justify-center text-slate-400 hover:text-blue-700 hover:scale-110 transition-all border border-slate-100">
+                  <Linkedin size={28} />
+                </a>
+              </div>
+            </div>
+            
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-20">
+              <div className="text-center sm:text-left">
+                <h4 className="font-black text-slate-900 mb-10 uppercase text-xs tracking-[0.3em] border-b border-slate-200 pb-4">Menu Rápido</h4>
+                <ul className="space-y-5 text-sm font-black text-slate-500 uppercase tracking-tight">
+                  <li><button onClick={() => scrollTo('home')} className="hover:text-blue-600 transition-colors">Página Inicial</button></li>
+                  <li><button onClick={() => scrollTo('sobre')} className="hover:text-blue-600 transition-colors">Fundador</button></li>
+                  <li><button onClick={() => scrollTo('cases')} className="hover:text-blue-600 transition-colors">Cases de Sucesso</button></li>
+                  <li><button onClick={() => scrollTo('servicos')} className="hover:text-blue-600 transition-colors">Serviços</button></li>
+                </ul>
+              </div>
+              <div className="text-center sm:text-left">
+                <h4 className="font-black text-slate-900 mb-10 uppercase text-xs tracking-[0.3em] border-b border-slate-200 pb-4 text-center sm:text-left">Contacto Direto</h4>
+                <div className="flex items-center justify-center sm:justify-start gap-6">
+                  {/* Botão de E-mail: Dispara função JS para evitar navegação de página indesejada */}
+                  <button 
+                    onClick={triggerEmail}
+                    className="inline-flex items-center justify-center w-16 h-16 bg-white rounded-[1.5rem] shadow-2xl border border-slate-100 text-blue-600 hover:bg-blue-600 hover:text-white hover:-translate-y-1.5 transition-all duration-500 group outline-none focus:ring-2 focus:ring-blue-400"
+                    title={`Enviar e-mail para ${EMAIL_ADDRESS}`}
+                  >
+                    <Mail size={36} strokeWidth={2.5} />
+                  </button>
+                  
+                  {/* Ícone de WhatsApp */}
+                  <a 
+                    href={WHATSAPP_URL} 
+                    target="_blank" 
+                    rel="noopener noreferrer" 
+                    className="inline-flex items-center justify-center w-16 h-16 bg-white rounded-[1.5rem] shadow-2xl border border-slate-100 text-green-500 hover:bg-green-500 hover:text-white hover:-translate-y-1.5 transition-all duration-500 group"
+                    title="Chamar no WhatsApp"
+                  >
+                    <MessageCircle size={36} strokeWidth={2.5} />
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <div className="pt-12 border-t border-slate-200 flex flex-col md:flex-row justify-between items-center gap-8 text-center sm:text-left">
+            <p className="text-slate-400 text-xs font-black uppercase tracking-widest">© 2025 DataVisionX. Direitos Reservados.</p>
+            <div className="flex gap-12 text-[10px] text-slate-400 font-black uppercase tracking-[0.2em]">
+              <a href="#" className="hover:text-blue-600 transition-colors">Privacidade</a>
+              <a href="#" className="hover:text-blue-600 transition-colors">Termos</a>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+  );
+};
+
+export default App;
