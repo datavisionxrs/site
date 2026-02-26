@@ -3,15 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DataVisionX – Inteligência Estratégica & BI</title>
+    <title>DataVisionX – Gestão Orientada por Dados</title>
     
-    <!-- Fontes Premium: Outfit para Títulos, Inter para Texto -->
+    <!-- Fontes Premium -->
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
     
-    <!-- Tailwind CSS para estilização moderna -->
+    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     
-    <!-- Lucide Icons para ícones profissionais -->
+    <!-- Lucide Icons -->
     <script src="https://unpkg.com/lucide@latest"></script>
 
     <script>
@@ -72,6 +72,13 @@
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
+
+        /* Animação suave de entrada */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .reveal { animation: fadeIn 0.8s ease-out forwards; }
     </style>
 </head>
 <body class="bg-slate-50 text-slate-900 overflow-x-hidden selection:bg-blue-100 selection:text-blue-900">
@@ -90,8 +97,9 @@
                 <a href="#cases" class="hover:text-blue-600 transition-colors">Cases</a>
                 <a href="#servicos" class="hover:text-blue-600 transition-colors">Serviços</a>
                 <a href="#metodo" class="hover:text-blue-600 transition-colors">Método</a>
+                <a href="#planos" class="hover:text-blue-600 transition-colors">Planos</a>
                 <a href="https://wa.me/5551982805652" target="_blank" class="bg-blue-600 text-white px-6 py-2.5 rounded-full hover:bg-blue-700 transition-all shadow-md shadow-blue-100 flex items-center gap-2">
-                    CONTACTO
+                    CONTATO
                 </a>
             </div>
 
@@ -111,43 +119,48 @@
             <a href="#cases" onclick="toggleMenu()" class="text-2xl font-bold border-b pb-2">Cases</a>
             <a href="#servicos" onclick="toggleMenu()" class="text-2xl font-bold border-b pb-2">Serviços</a>
             <a href="#metodo" onclick="toggleMenu()" class="text-2xl font-bold border-b pb-2">Método</a>
-            <a href="https://wa.me/5551982805652" target="_blank" class="bg-blue-600 text-white p-4 rounded-xl text-center font-bold text-xl uppercase mt-4">AGENDAR AGORA</a>
+            <a href="#planos" onclick="toggleMenu()" class="text-2xl font-bold border-b pb-2">Planos</a>
+            <a href="https://wa.me/5551982805652" target="_blank" class="bg-blue-600 text-white p-4 rounded-xl text-center font-bold text-xl uppercase mt-4">AGENDAR DIAGNÓSTICO</a>
         </div>
     </nav>
 
     <!-- Hero Section -->
     <section id="home" class="relative pt-48 pb-24 overflow-hidden bg-slate-900 text-white">
+        <!-- Background Decor -->
+        <div class="absolute inset-0 opacity-20">
+            <div class="absolute top-[-10%] right-[-10%] w-[500px] h-[500px] bg-blue-600 rounded-full blur-[120px]"></div>
+            <div class="absolute bottom-[-10%] left-[-10%] w-[400px] h-[400px] bg-cyan-500 rounded-full blur-[100px]"></div>
+        </div>
+
         <div class="max-w-7xl mx-auto px-6 relative z-10 flex flex-col items-center text-center">
-            <div class="inline-block px-4 py-1 bg-blue-500/20 text-blue-300 rounded-full text-[10px] font-black mb-8 border border-blue-500/30 uppercase tracking-widest font-outfit">
-                Inteligência Estratégica & BI
+            <div class="inline-block px-4 py-1 bg-blue-500/20 text-blue-300 rounded-full text-[10px] font-black mb-8 border border-blue-500/30 uppercase tracking-widest font-outfit reveal">
+                Gestão orientada por dados (BI como ferramenta)
             </div>
-            <h1 class="text-4xl md:text-7xl font-black text-white leading-tight uppercase mb-8 font-outfit tracking-tighter">
-                Transforme dados em <br><span class="gradient-text italic font-black">crescimento previsível</span>
+            <h1 class="text-4xl md:text-7xl font-black text-white leading-tight uppercase mb-8 font-outfit tracking-tighter reveal" style="animation-delay: 0.1s">
+                Coloque a gestão <br><span class="gradient-text italic font-black">no controle</span>
             </h1>
-            <p class="text-lg md:text-xl text-slate-400 mb-12 max-w-3xl leading-relaxed font-medium">
-                Consultoria e implementação de BI que transforma números em decisões inteligentes, com painéis práticos para quem precisa decidir rápido.
+            <p class="text-lg md:text-xl text-slate-400 mb-12 max-w-3xl leading-relaxed font-medium reveal" style="animation-delay: 0.2s">
+                Eu ajudo empresas a criar rotina de gestão: metas claras, indicadores certos e decisões no tempo certo.
+                O BI entra como instrumento para dar visibilidade e acelerar a execução.
             </p>
-            <div class="flex flex-col sm:flex-row gap-5 mb-16">
+            <div class="flex flex-col sm:flex-row gap-5 mb-16 reveal" style="animation-delay: 0.3s">
                 <a href="https://wa.me/5551982805652" target="_blank" class="bg-white text-blue-900 px-12 py-5 rounded-full font-black text-lg hover:shadow-2xl hover:scale-105 transition-all uppercase tracking-tight shadow-xl">
                     Agendar um diagnóstico
                 </a>
                 <a href="#cases" class="bg-slate-800/50 border border-white/10 text-white px-12 py-5 rounded-full font-black text-lg hover:bg-slate-800 transition-all uppercase tracking-tight text-center">
-                    Ver Cases de Sucesso
+                    Ver resultados reais
                 </a>
             </div>
-            <p class="text-xs text-slate-500 flex items-center gap-2 font-bold uppercase tracking-widest">
-                <i data-lucide="shield-check" class="text-blue-500 w-4 h-4"></i> Método validado por empresas em crescimento
+            <p class="text-xs text-slate-500 flex items-center gap-2 font-bold uppercase tracking-widest reveal" style="animation-delay: 0.4s">
+                <i data-lucide="shield-check" class="text-blue-500 w-4 h-4"></i> Método aplicado em empresas em crescimento
             </p>
-        </div>
-        <div class="absolute top-0 right-0 w-1/2 h-full opacity-10 pointer-events-none">
-          <svg viewBox="0 0 400 400" class="w-full h-full"><path d="M50,150 Q100,50 150,150 T250,150 T350,150" stroke="white" fill="transparent" stroke-width="1"></path></svg>
         </div>
     </section>
 
     <!-- Marcas Parceiras -->
     <section class="py-16 bg-white border-y border-slate-100 font-black">
         <div class="max-w-7xl mx-auto px-6">
-            <p class="text-center text-slate-400 text-[10px] uppercase tracking-[0.4em] mb-12 font-outfit">Impacto Real no Mercado</p>
+            <p class="text-center text-slate-400 text-[10px] uppercase tracking-[0.4em] mb-12 font-outfit">Experiência prática em gestão e performance</p>
             <div class="flex flex-wrap justify-center items-center gap-10 md:gap-20 opacity-40 grayscale italic text-xl md:text-3xl tracking-tighter">
                 <span>GRENDENE</span><span>SANREMO</span><span>AÇORIANA</span><span>LIKO</span><span>PRIORITY</span><span>ARGENTA</span>
             </div>
@@ -160,7 +173,7 @@
             <div class="w-full md:w-5/12 relative group">
                 <div class="absolute -inset-4 bg-gradient-to-tr from-blue-600 to-cyan-500 rounded-[2.5rem] blur opacity-10 group-hover:opacity-20 transition-all duration-500"></div>
                 <div class="relative bg-white aspect-[4/5] rounded-[2rem] overflow-hidden shadow-2xl border-8 border-white">
-                    <img src="https://media.licdn.com/dms/image/v2/D4D03AQEefEVUWvBgGg/profile-displayphoto-crop_800_800/B4DZxrZJmJIoAM-/0/1771328281723?e=1772668800&v=beta&t=X9GRfyhCT0ZxWHDAA0uxaTZ510B8tHaN3ctP3qEKV3s" alt="Alberto Rossi" class="w-full h-full object-cover grayscale-0 transition-transform duration-700">
+                    <img src="https://media.licdn.com/dms/image/v2/D4D03AQEefEVUWvBgGg/profile-displayphoto-crop_800_800/B4DZxrZJmJIoAM-/0/1771328281723?e=1772668800&v=beta&t=X9GRfyhCT0ZxWHDAA0uxaTZ510B8tHaN3ctP3qEKV3s" alt="Alberto Rossi" class="w-full h-full object-cover">
                     <div class="absolute bottom-0 left-0 w-full p-8 bg-gradient-to-t from-slate-900/90 via-slate-900/40 to-transparent text-center">
                         <p class="text-white font-black text-2xl font-outfit uppercase tracking-tight">Alberto Rossi</p>
                         <p class="text-blue-300 text-xs font-bold uppercase tracking-[0.2em]">Fundador DataVisionX</p>
@@ -168,30 +181,30 @@
                 </div>
             </div>
             <div class="w-full md:w-7/12">
-                <span class="text-blue-600 font-black uppercase tracking-widest text-sm mb-4 block font-outfit">Liderança Estratégica</span>
+                <span class="text-blue-600 font-black uppercase tracking-widest text-sm mb-4 block font-outfit">Gestão orientada por dados</span>
                 <h2 class="text-5xl font-black text-slate-900 leading-tight uppercase mb-8 font-outfit tracking-tighter">Alberto Rossi</h2>
                 <div class="space-y-6 text-slate-600 text-lg font-medium leading-relaxed max-w-2xl">
-                    <p>Fundador da <strong>DataVisionX</strong>, Alberto Rossi é consultor especializado em Business Intelligence (BI) e Inteligência de Mercado (IM).</p>
-                    <p>Com vasta experiência em corporações como <strong>Grendene, Grupo InBetta, Sanremo e Grupo Argenta</strong>, ele ajuda empresas a conectar dados com resultados reais através de tecnologia avançada.</p>
-                    <p>Mestre em Gestão Tecnológica, graduado em Administração, atualmente cursando MBA em <strong>Inteligência Artificial para Negócios</strong>.</p>
+                    <p>Fundador da <strong>DataVisionX</strong>, eu atuo como consultor em <strong>gestão orientada por dados</strong> para melhorar resultado e rotina de decisão nas empresas.</p>
+                    <p>Com experiência em corporações como <strong>Grendene, Grupo InBetta, Sanremo e Grupo Argenta</strong>, eu conecto operação, comercial e financeiro em um modelo simples: <strong>meta &rarr; indicador &rarr; decisão &rarr; ação</strong>.</p>
+                    <p>Mestre em Gestão Tecnológica, graduado em Administração, cursando especialização em <strong>IA para Negócios</strong>. O BI entra como ferramenta para dar visibilidade — o foco é gestão e execução.</p>
                 </div>
                 
                 <div class="mt-12 grid grid-cols-1 sm:grid-cols-2 gap-4 font-bold text-sm">
                     <div class="bg-white p-5 rounded-2xl border border-slate-200/60 flex items-center gap-4 shadow-sm group hover:border-blue-400 transition-colors">
                         <i data-lucide="check-circle-2" class="text-blue-600 w-6 h-6"></i>
-                        <span class="text-slate-700">Power BI para Gestão</span>
+                        <span class="text-slate-700">Indicadores & Metas</span>
                     </div>
                     <div class="bg-white p-5 rounded-2xl border border-slate-200/60 flex items-center gap-4 shadow-sm group hover:border-blue-400 transition-colors">
                         <i data-lucide="check-circle-2" class="text-blue-600 w-6 h-6"></i>
-                        <span class="text-slate-700">Modelagem de Dados</span>
+                        <span class="text-slate-700">Rotina de Gestão</span>
                     </div>
                     <div class="bg-white p-5 rounded-2xl border border-slate-200/60 flex items-center gap-4 shadow-sm group hover:border-blue-400 transition-colors">
                         <i data-lucide="check-circle-2" class="text-blue-600 w-6 h-6"></i>
-                        <span class="text-slate-700">Estratégia de Negócios</span>
+                        <span class="text-slate-700">Performance Comercial</span>
                     </div>
                     <div class="bg-white p-5 rounded-2xl border border-slate-200/60 flex items-center gap-4 shadow-sm group hover:border-blue-400 transition-colors">
                         <i data-lucide="check-circle-2" class="text-blue-600 w-6 h-6"></i>
-                        <span class="text-slate-700">Automação de BI</span>
+                        <span class="text-slate-700">Governança do Número</span>
                     </div>
                 </div>
 
@@ -199,22 +212,22 @@
                     <a href="http://linkedin.com/in/alberto-rossi-13839125" target="_blank" class="flex items-center gap-3 text-blue-700 font-black text-lg hover:text-blue-900 transition-colors uppercase tracking-tight">
                         <i data-lucide="linkedin" class="w-6 h-6"></i> LinkedIn
                     </a>
-                    <p class="text-slate-400 italic text-sm md:border-l md:pl-8 border-slate-200 font-medium">“A inteligência de dados só tem valor quando ajuda as pessoas a decidir melhor.”</p>
+                    <p class="text-slate-400 italic text-sm md:border-l md:pl-8 border-slate-200 font-medium">"Relatório não muda empresa. Rotina de decisão muda."</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Cases Section (6 Empresas) -->
+    <!-- Cases Section -->
     <section id="cases" class="py-32 bg-white">
         <div class="max-w-5xl mx-auto px-6 text-center mb-20">
             <span class="text-blue-600 font-black uppercase tracking-widest text-[10px] mb-4 block font-outfit">Resultados Práticos</span>
-            <h2 class="text-5xl md:text-7xl font-black tracking-tighter uppercase mb-6 font-outfit text-slate-900 leading-none">CASES DE <span class="text-blue-600 italic">SUCESSO</span></h2>
-            <p class="text-slate-500 mt-5 text-xl font-medium max-w-2xl mx-auto">Transformamos caos informativo em lucro e previsibilidade estratégica.</p>
+            <h2 class="text-5xl md:text-7xl font-black tracking-tighter uppercase mb-6 font-outfit text-slate-900 leading-none">CASES DE <span class="text-blue-600 italic">RESULTADO</span></h2>
+            <p class="text-slate-500 mt-5 text-xl font-medium max-w-2xl mx-auto">Mais clareza, mais decisão, mais execução — com gestão no controle.</p>
         </div>
 
         <div class="max-w-4xl mx-auto px-6 space-y-4">
-            <!-- Case 1: Liko -->
+            <!-- Case 1: Liko Química -->
             <div class="case-item border border-slate-100 bg-slate-50 rounded-2xl overflow-hidden transition-all duration-500 shadow-sm">
                 <button onclick="toggleCase(this)" class="w-full flex items-center justify-between p-8 text-left outline-none bg-white">
                     <span class="text-xl md:text-2xl font-black tracking-tight font-outfit uppercase">Liko Química</span>
@@ -223,13 +236,13 @@
                 <div class="case-content px-8">
                     <div class="grid grid-cols-1 md:grid-cols-3 gap-6 pt-8 border-t border-slate-100">
                         <div class="p-5 bg-white rounded-2xl shadow-sm"><p class="text-[9px] font-black text-slate-400 uppercase mb-3">DESAFIO</p><p class="text-slate-600 text-sm leading-relaxed">Baixa visibilidade sobre eficiência produtiva e dados distribuídos em planilhas manuais.</p></div>
-                        <div class="p-5 bg-white rounded-2xl shadow-sm"><p class="text-[9px] font-black text-blue-400 uppercase mb-3">SOLUÇÃO</p><p class="text-slate-600 text-sm leading-relaxed">BI conectado à produção, automatizando indicadores por lote e integração total às OPs.</p></div>
+                        <div class="p-5 bg-white rounded-2xl shadow-sm"><p class="text-[9px] font-black text-blue-400 uppercase mb-3">SOLUÇÃO</p><p class="text-slate-600 text-sm leading-relaxed">Indicadores com responsáveis, metas e rotina de acompanhamento; BI como instrumento para leitura rápida por lote e OP.</p></div>
                         <div class="p-5 bg-green-50 rounded-2xl shadow-sm border border-green-100"><p class="text-[9px] font-black text-green-600 uppercase mb-3">RESULTADO</p><p class="text-slate-700 text-sm font-black italic">Redução no tempo de consolidação e ganho na produtividade média.</p></div>
                     </div>
                 </div>
             </div>
 
-            <!-- Case 2: Açoriana -->
+            <!-- Case 2: Açoriana Alimentos -->
             <div class="case-item border border-slate-100 bg-slate-50 rounded-2xl overflow-hidden transition-all duration-500 shadow-sm">
                 <button onclick="toggleCase(this)" class="w-full flex items-center justify-between p-8 text-left outline-none bg-white">
                     <span class="text-xl md:text-2xl font-black tracking-tight font-outfit uppercase">Açoriana Alimentos</span>
@@ -238,8 +251,8 @@
                 <div class="case-content px-8">
                     <div class="grid grid-cols-1 md:grid-cols-3 gap-6 pt-8 border-t border-slate-100">
                         <div class="p-5 bg-white rounded-2xl shadow-sm"><p class="text-[9px] font-black text-slate-400 uppercase mb-3">DESAFIO</p><p class="text-slate-600 text-sm leading-relaxed">Dificuldade de controle sobre operações logísticas e margens reais por rota de entrega.</p></div>
-                        <div class="p-5 bg-white rounded-2xl shadow-sm"><p class="text-[9px] font-black text-blue-400 uppercase mb-3">SOLUÇÃO</p><p class="text-slate-600 text-sm leading-relaxed">BI conectado ao ERP com foco em automação de relatórios e análise de rentabilidade de rotas.</p></div>
-                        <div class="p-5 bg-green-50 rounded-2xl shadow-sm border border-green-100"><p class="text-[9px] font-black text-green-600 uppercase mb-3">RESULTADO</p><p class="text-slate-700 text-sm font-black italic">Redução de 80% no tempo de relatórios e centenas de novos clientes identificados.</p></div>
+                        <div class="p-5 bg-white rounded-2xl shadow-sm"><p class="text-[9px] font-black text-blue-400 uppercase mb-3">SOLUÇÃO</p><p class="text-slate-600 text-sm leading-relaxed">Rotina de leitura de margem e rota + padronização de indicadores; BI conectado ao ERP para reduzir esforço manual e acelerar decisão.</p></div>
+                        <div class="p-5 bg-green-50 rounded-2xl shadow-sm border border-green-100"><p class="text-[9px] font-black text-green-600 uppercase mb-3">RESULTADO</p><p class="text-slate-700 text-sm font-black italic">Redução de 80% no tempo de relatórios e identificação clara de oportunidades de carteira.</p></div>
                     </div>
                 </div>
             </div>
@@ -252,9 +265,9 @@
                 </button>
                 <div class="case-content px-8">
                     <div class="grid grid-cols-1 md:grid-cols-3 gap-6 pt-8 border-t border-slate-100">
-                        <div class="p-5 bg-white rounded-2xl shadow-sm"><p class="text-[9px] font-black text-slate-400 uppercase mb-3">DESAFIO</p><p class="text-slate-600 text-sm leading-relaxed">Dificuldade em consolidar dados comerciais e financeiros entre diversas filiais e sistemas isolados.</p></div>
-                        <div class="p-5 bg-white rounded-2xl shadow-sm"><p class="text-[9px] font-black text-blue-400 uppercase mb-3">SOLUÇÃO</p><p class="text-slate-600 text-sm leading-relaxed">Dashboards integrados de DRE gerencial e margem unificando todas as filiais num único BI.</p></div>
-                        <div class="p-5 bg-green-50 rounded-2xl shadow-sm border border-green-100"><p class="text-[9px] font-black text-green-600 uppercase mb-3">RESULTADO</p><p class="text-slate-700 text-sm font-black italic">Decisões 40% mais ágeis e fechamento financeiro 70% mais rápido.</p></div>
+                        <div class="p-5 bg-white rounded-2xl shadow-sm"><p class="text-[9px] font-black text-slate-400 uppercase mb-3">DESAFIO</p><p class="text-slate-600 text-sm leading-relaxed">Consolidar dados comerciais e financeiros entre filiais e sistemas isolados.</p></div>
+                        <div class="p-5 bg-white rounded-2xl shadow-sm"><p class="text-[9px] font-black text-blue-400 uppercase mb-3">SOLUÇÃO</p><p class="text-slate-600 text-sm leading-relaxed">Modelo gerencial com indicadores oficiais e cadência mensal de performance unificada; BI para reduzir ruído na decisão.</p></div>
+                        <div class="p-5 bg-green-50 rounded-2xl shadow-sm border border-green-100"><p class="text-[9px] font-black text-green-600 uppercase mb-3">RESULTADO</p><p class="text-slate-700 text-sm font-black italic">Decisões mais ágeis e fechamento financeiro substancialmente mais rápido.</p></div>
                     </div>
                 </div>
             </div>
@@ -267,9 +280,9 @@
                 </button>
                 <div class="case-content px-8">
                     <div class="grid grid-cols-1 md:grid-cols-3 gap-6 pt-8 border-t border-slate-100">
-                        <div class="p-5 bg-white rounded-2xl shadow-sm"><p class="text-[9px] font-black text-slate-400 uppercase mb-3">DESAFIO</p><p class="text-slate-600 text-sm leading-relaxed">Necessidade de melhorar a visibilidade sobre competitividade e tendências de mercado.</p></div>
-                        <div class="p-5 bg-white rounded-2xl shadow-sm"><p class="text-[9px] font-black text-blue-400 uppercase mb-3">SOLUÇÃO</p><p class="text-slate-600 text-sm leading-relaxed">Criação de Sistema de Inteligência de Mercado com BI focado em análise da concorrência.</p></div>
-                        <div class="p-5 bg-green-50 rounded-2xl shadow-sm border border-green-100"><p class="text-[9px] font-black text-green-600 uppercase mb-3">RESULTADO</p><p class="text-slate-700 text-sm font-black italic">Relatórios 60% mais rápidos e maior assertividade em novos produtos.</p></div>
+                        <div class="p-5 bg-white rounded-2xl shadow-sm"><p class="text-[9px] font-black text-slate-400 uppercase mb-3">DESAFIO</p><p class="text-slate-600 text-sm leading-relaxed">Melhorar visibilidade sobre competitividade e tendências de mercado para suportar decisões.</p></div>
+                        <div class="p-5 bg-white rounded-2xl shadow-sm"><p class="text-[9px] font-black text-blue-400 uppercase mb-3">SOLUÇÃO</p><p class="text-slate-600 text-sm leading-relaxed">Estrutura de inteligência com indicadores acionáveis e leitura executiva; BI para acelerar análise e orientar estratégia.</p></div>
+                        <div class="p-5 bg-green-50 rounded-2xl shadow-sm border border-green-100"><p class="text-[9px] font-black text-green-600 uppercase mb-3">RESULTADO</p><p class="text-slate-700 text-sm font-black italic">Relatórios mais rápidos e maior assertividade em decisões comerciais estratégicas.</p></div>
                     </div>
                 </div>
             </div>
@@ -282,9 +295,9 @@
                 </button>
                 <div class="case-content px-8">
                     <div class="grid grid-cols-1 md:grid-cols-3 gap-6 pt-8 border-t border-slate-100">
-                        <div class="p-5 bg-white rounded-2xl shadow-sm"><p class="text-[9px] font-black text-slate-400 uppercase mb-3">DESAFIO</p><p class="text-slate-600 text-sm leading-relaxed">Necessidade de mapeamento preciso de preços e suporte estratégico para decisões comerciais.</p></div>
-                        <div class="p-5 bg-white rounded-2xl shadow-sm"><p class="text-[9px] font-black text-blue-400 uppercase mb-3">SOLUÇÃO</p><p class="text-slate-600 text-sm leading-relaxed">Estruturação de BI para Inteligência de Mercado com automação total de pesquisas de preço.</p></div>
-                        <div class="p-5 bg-green-50 rounded-2xl shadow-sm border border-green-100"><p class="text-[9px] font-black text-green-600 uppercase mb-3">RESULTADO</p><p class="text-slate-700 text-sm font-black italic">Redução de 55% no tempo de relatórios e 30% mais precisão nas análises.</p></div>
+                        <div class="p-5 bg-white rounded-2xl shadow-sm"><p class="text-[9px] font-black text-slate-400 uppercase mb-3">DESAFIO</p><p class="text-slate-600 text-sm leading-relaxed">Mapeamento de preços e suporte para decisões comerciais com rapidez e padrão de rede.</p></div>
+                        <div class="p-5 bg-white rounded-2xl shadow-sm"><p class="text-[9px] font-black text-blue-400 uppercase mb-3">SOLUÇÃO</p><p class="text-slate-600 text-sm leading-relaxed">Rotina de leitura de mercado + padronização de indicadores; automação para ganhar velocidade de decisão comercial.</p></div>
+                        <div class="p-5 bg-green-50 rounded-2xl shadow-sm border border-green-100"><p class="text-[9px] font-black text-green-600 uppercase mb-3">RESULTADO</p><p class="text-slate-700 text-sm font-black italic">Menos esforço manual e muito mais precisão e agilidade nas análises de mercado.</p></div>
                     </div>
                 </div>
             </div>
@@ -297,9 +310,9 @@
                 </button>
                 <div class="case-content px-8">
                     <div class="grid grid-cols-1 md:grid-cols-3 gap-6 pt-8 border-t border-slate-100">
-                        <div class="p-5 bg-white rounded-2xl shadow-sm"><p class="text-[9px] font-black text-slate-400 uppercase mb-3">DESAFIO</p><p class="text-slate-600 text-sm leading-relaxed">Monitorar tendências globais e performance de marcas de múltiplas fontes complexas.</p></div>
-                        <div class="p-5 bg-white rounded-2xl shadow-sm"><p class="text-[9px] font-black text-blue-400 uppercase mb-3">SOLUÇÃO</p><p class="text-slate-600 text-sm leading-relaxed">Modelo de inteligência competitiva em BI contemplando ciclo de vida e previsões de demanda.</p></div>
-                        <div class="p-5 bg-green-50 rounded-2xl shadow-sm border border-green-100"><p class="text-[9px] font-black text-green-600 uppercase mb-3">RESULTADO</p><p class="text-slate-700 text-sm font-black italic">Previsões 20% mais precisas e identificação ágil de novos nichos.</p></div>
+                        <div class="p-5 bg-white rounded-2xl shadow-sm"><p class="text-[9px] font-black text-slate-400 uppercase mb-3">DESAFIO</p><p class="text-slate-600 text-sm leading-relaxed">Monitorar tendências e performance de múltiplas fontes complexas para orientar decisões globais.</p></div>
+                        <div class="p-5 bg-white rounded-2xl shadow-sm"><p class="text-[9px] font-black text-blue-400 uppercase mb-3">SOLUÇÃO</p><p class="text-slate-600 text-sm leading-relaxed">Modelo de análise com indicadores claros e leitura executiva; BI como apoio direto para decisões táticas e estratégicas.</p></div>
+                        <div class="p-5 bg-green-50 rounded-2xl shadow-sm border border-green-100"><p class="text-[9px] font-black text-green-600 uppercase mb-3">RESULTADO</p><p class="text-slate-700 text-sm font-black italic">Maior velocidade de análise e identificação ágil de oportunidades de negócio.</p></div>
                     </div>
                 </div>
             </div>
@@ -310,40 +323,42 @@
     <section id="servicos" class="py-32 bg-slate-900 text-white">
         <div class="max-w-7xl mx-auto px-6">
             <div class="text-center mb-24">
-                <h2 class="text-5xl md:text-7xl font-black tracking-tighter uppercase mb-6 font-outfit tracking-tighter uppercase">Nossas <span class="text-blue-400">Entregas</span></h2>
-                <p class="text-slate-400 mt-5 text-xl font-medium max-w-2xl mx-auto leading-relaxed">Muito além de dashboards: construímos todo o ecossistema estratégico que sustenta uma gestão moderna.</p>
+                <h2 class="text-5xl md:text-7xl font-black tracking-tighter uppercase mb-6 font-outfit">Entregas de <span class="text-blue-400">Gestão</span></h2>
+                <p class="text-slate-400 mt-5 text-xl font-medium max-w-2xl mx-auto leading-relaxed">
+                    O foco é resultado e rotina de decisão. O BI entra como ferramenta para todo mundo enxergar o mesmo jogo.
+                </p>
             </div>
             
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 <div class="bg-slate-800/40 p-10 rounded-3xl border border-white/5 hover:border-blue-500/50 transition-all group shadow-lg">
                     <i data-lucide="search" class="text-blue-400 mb-8 group-hover:scale-110 transition-transform w-10 h-10"></i>
-                    <h3 class="text-2xl font-black mb-4 uppercase tracking-tight font-outfit">Diagnóstico</h3>
-                    <p class="text-slate-400 text-sm font-medium leading-relaxed">Avaliamos fontes e estrutura dos dados para identificar gargalos e mapear melhorias estruturais imediatas.</p>
+                    <h3 class="text-2xl font-black mb-4 uppercase tracking-tight font-outfit">Diagnóstico de Gestão</h3>
+                    <p class="text-slate-400 text-sm font-medium leading-relaxed">Identifico vazamentos de margem/caixa e gargalos de execução. Saída: prioridades claras e plano de ação.</p>
                 </div>
                 <div class="bg-slate-800/40 p-10 rounded-3xl border border-white/5 hover:border-blue-500/50 transition-all group shadow-lg">
-                    <i data-lucide="trending-up" class="text-blue-400 mb-8 group-hover:scale-110 transition-transform w-10 h-10"></i>
-                    <h3 class="text-2xl font-black mb-4 uppercase tracking-tight font-outfit">KPIs Estratégicos</h3>
-                    <p class="text-slate-400 text-sm font-medium leading-relaxed">Definimos indicadores claros que conectam a estratégia do negócio com a operação e as metas de lucro.</p>
+                    <i data-lucide="target" class="text-blue-400 mb-8 group-hover:scale-110 transition-transform w-10 h-10"></i>
+                    <h3 class="text-2xl font-black mb-4 uppercase tracking-tight font-outfit">Metas & Indicadores</h3>
+                    <p class="text-slate-400 text-sm font-medium leading-relaxed">Defino os KPIs que viram decisão: regra, meta, responsável e cadência (semanal/mensal).</p>
                 </div>
                 <div class="bg-slate-800/40 p-10 rounded-3xl border border-white/5 hover:border-blue-500/50 transition-all group shadow-lg">
                     <i data-lucide="layout-dashboard" class="text-blue-400 mb-8 group-hover:scale-110 transition-transform w-10 h-10"></i>
-                    <h3 class="text-2xl font-black mb-4 uppercase tracking-tight font-outfit">Dashboards</h3>
-                    <p class="text-slate-400 text-sm font-medium leading-relaxed">Painéis interativos no Power BI com dados atualizados automaticamente e leitura visual intuitiva.</p>
+                    <h3 class="text-2xl font-black mb-4 uppercase tracking-tight font-outfit">Painéis de Gestão</h3>
+                    <p class="text-slate-400 text-sm font-medium leading-relaxed">Painéis no Power BI como "painel do carro": leitura simples e rápida para decidir no dia a dia.</p>
                 </div>
                 <div class="bg-slate-800/40 p-10 rounded-3xl border border-white/5 hover:border-blue-500/50 transition-all group shadow-lg">
                     <i data-lucide="zap" class="text-blue-400 mb-8 group-hover:scale-110 transition-transform w-10 h-10"></i>
-                    <h3 class="text-2xl font-black mb-4 uppercase tracking-tight font-outfit">Automação</h3>
-                    <p class="text-slate-400 text-sm font-medium leading-relaxed">Eliminamos processos manuais integrando ERP, CRM e planilhas com atualização em tempo real.</p>
+                    <h3 class="text-2xl font-black mb-4 uppercase tracking-tight font-outfit">Automação de Dados</h3>
+                    <p class="text-slate-400 text-sm font-medium leading-relaxed">Reduzo trabalho manual integrando ERP/CRM/planilhas. Menos retrabalho, mais tempo para executar.</p>
                 </div>
                 <div class="bg-slate-800/40 p-10 rounded-3xl border border-white/5 hover:border-blue-500/50 transition-all group shadow-lg">
                     <i data-lucide="file-check" class="text-blue-400 mb-8 group-hover:scale-110 transition-transform w-10 h-10"></i>
                     <h3 class="text-2xl font-black mb-4 uppercase tracking-tight font-outfit">Governança</h3>
-                    <p class="text-slate-400 text-sm font-medium leading-relaxed">Estruturamos as regras e padrões que garantem dados confiáveis, auditáveis e seguros para os sócios.</p>
+                    <p class="text-slate-400 text-sm font-medium leading-relaxed">Fonte oficial, regras e padrões. Todo mundo fala a mesma língua e as decisões ficam seguras.</p>
                 </div>
                 <div class="bg-slate-800/40 p-10 rounded-3xl border border-white/5 hover:border-blue-500/50 transition-all group shadow-lg">
                     <i data-lucide="brain-circuit" class="text-blue-400 mb-8 group-hover:scale-110 transition-transform w-10 h-10"></i>
-                    <h3 class="text-2xl font-black mb-4 uppercase tracking-tight font-outfit">IA para Negócios</h3>
-                    <p class="text-slate-400 text-sm font-medium leading-relaxed">Aplicamos inteligência de mercado e análises preditivas para antecipar movimentos da concorrência.</p>
+                    <h3 class="text-2xl font-black mb-4 uppercase tracking-tight font-outfit">Inteligência Avançada</h3>
+                    <p class="text-slate-400 text-sm font-medium leading-relaxed">ROI, LTV, churn e previsões com IA quando fizer sentido — sempre para orientar ação.</p>
                 </div>
             </div>
         </div>
@@ -356,35 +371,34 @@
                 <div class="w-full lg:w-1/2">
                     <span class="text-blue-600 font-black uppercase tracking-widest text-sm mb-4 block font-outfit">Eficácia em 4 Etapas</span>
                     <h2 class="text-5xl font-black text-slate-900 uppercase tracking-tighter font-outfit mb-8">MÉTODO <span class="text-blue-600 italic">DATAVISIONX</span></h2>
-                    <p class="text-slate-600 mb-12 text-xl font-medium leading-relaxed max-w-xl">Um processo estruturado para transformar dados brutos em decisões que geram lucro.</p>
                     
                     <div class="space-y-10">
                         <div class="flex gap-8 items-start group">
                             <div class="bg-blue-600 text-white w-14 h-14 rounded-2xl flex-shrink-0 flex items-center justify-center font-black text-xl shadow-blue-200 shadow-xl group-hover:scale-110 transition-transform italic">01</div>
                             <div>
-                                <h4 class="font-black text-slate-800 text-xl mb-2 uppercase tracking-tight font-outfit">Diagnóstico Estratégico</h4>
-                                <p class="text-slate-500 text-base font-medium leading-relaxed">Mapeamento de OKRs e inventário técnico de todas as fontes de dados da empresa.</p>
+                                <h4 class="font-black text-slate-800 text-xl mb-2 uppercase tracking-tight font-outfit">Diagnóstico & Direção</h4>
+                                <p class="text-slate-500 text-base font-medium leading-relaxed">Entendo objetivos e dores prioritárias. Saída: o que precisa ser decidido e por quê.</p>
                             </div>
                         </div>
                         <div class="flex gap-8 items-start group">
                             <div class="bg-blue-600 text-white w-14 h-14 rounded-2xl flex-shrink-0 flex items-center justify-center font-black text-xl shadow-blue-200 shadow-xl group-hover:scale-110 transition-transform italic">02</div>
                             <div>
-                                <h4 class="font-black text-slate-800 text-xl mb-2 uppercase tracking-tight font-outfit">Arquitetura de Dados</h4>
-                                <p class="text-slate-500 text-base font-medium leading-relaxed">Limpeza, padronização e criação dos pipelines automáticos de integração segura.</p>
+                                <h4 class="font-black text-slate-800 text-xl mb-2 uppercase tracking-tight font-outfit">Dados no Lugar</h4>
+                                <p class="text-slate-500 text-base font-medium leading-relaxed">Limpeza e integração das fontes para ter um número confiável e replicável.</p>
                             </div>
                         </div>
                         <div class="flex gap-8 items-start group">
                             <div class="bg-blue-600 text-white w-14 h-14 rounded-2xl flex-shrink-0 flex items-center justify-center font-black text-xl shadow-blue-200 shadow-xl group-hover:scale-110 transition-transform italic">03</div>
                             <div>
-                                <h4 class="font-black text-slate-800 text-xl mb-2 uppercase tracking-tight font-outfit">Dashboards & IA</h4>
-                                <p class="text-slate-500 text-base font-medium leading-relaxed">Prototipação com feedbacks quinzenais e aplicação de modelos preditivos sob medida.</p>
+                                <h4 class="font-black text-slate-800 text-xl mb-2 uppercase tracking-tight font-outfit">Instrumentos de Gestão</h4>
+                                <p class="text-slate-500 text-base font-medium leading-relaxed">KPIs, metas e painéis para leitura rápida. Foco em decisão rápida.</p>
                             </div>
                         </div>
                         <div class="flex gap-8 items-start group">
                             <div class="bg-blue-600 text-white w-14 h-14 rounded-2xl flex-shrink-0 flex items-center justify-center font-black text-xl shadow-blue-200 shadow-xl group-hover:scale-110 transition-transform italic">04</div>
                             <div>
-                                <h4 class="font-black text-slate-800 text-xl mb-2 uppercase tracking-tight font-outfit">Treino & Adoção</h4>
-                                <p class="text-slate-500 text-base font-medium leading-relaxed">Workshop prático com a equipa e definição do plano de evolução contínua trimestral.</p>
+                                <h4 class="font-black text-slate-800 text-xl mb-2 uppercase tracking-tight font-outfit">Rotina & Execução</h4>
+                                <p class="text-slate-500 text-base font-medium leading-relaxed">Ritual semanal e mensal com pauta pronta para transformar dado em ação.</p>
                             </div>
                         </div>
                     </div>
@@ -397,28 +411,28 @@
                                 <i data-lucide="clock" class="w-8 h-8"></i>
                             </div>
                             <div>
-                                <p class="text-[10px] text-slate-400 font-black uppercase tracking-[0.3em] mb-1">Eficácia Temporal</p>
-                                <p class="text-slate-800 font-black text-xl tracking-tight uppercase font-outfit">Implementação Ágil</p>
+                                <p class="text-[10px] text-slate-400 font-black uppercase tracking-[0.3em] mb-1">Velocidade de Execução</p>
+                                <p class="text-slate-800 font-black text-xl tracking-tight uppercase font-outfit">Implementação com ritmo</p>
                             </div>
                         </div>
                         <div class="space-y-10">
                             <div class="space-y-4">
                                 <div class="flex justify-between text-[10px] font-black text-slate-400 uppercase tracking-widest">
-                                    <span>Velocidade de Negócio</span>
-                                    <span class="text-blue-600 font-bold">ALTA PERFORMANCE</span>
+                                    <span>Gestão no Controle</span>
+                                    <span class="text-blue-600 font-bold">DECISÃO + AÇÃO</span>
                                 </div>
                                 <div class="h-4 bg-slate-100 rounded-full overflow-hidden shadow-inner">
                                     <div class="h-full bg-gradient-to-r from-blue-500 via-blue-600 to-indigo-700 w-[85%] animate-pulse"></div>
                                 </div>
                             </div>
                             <div class="grid grid-cols-2 gap-6">
-                                <div class="bg-slate-50/80 p-8 rounded-[2rem] border border-slate-100 text-center shadow-sm">
+                                <div class="bg-slate-50/80 p-8 rounded-[2rem] border border-slate-100 text-center">
                                     <p class="text-4xl font-black text-blue-700 tracking-tighter">80%</p>
                                     <p class="text-[10px] text-slate-400 uppercase font-black mt-3 leading-tight tracking-[0.1em]">Menos Esforço Manual</p>
                                 </div>
-                                <div class="bg-slate-50/80 p-8 rounded-[2rem] border border-slate-100 text-center shadow-sm">
+                                <div class="bg-slate-50/80 p-8 rounded-[2rem] border border-slate-100 text-center">
                                     <p class="text-4xl font-black text-blue-700 tracking-tighter">70%</p>
-                                    <p class="text-[10px] text-slate-400 uppercase font-black mt-3 leading-tight tracking-[0.1em]">Agilidade na Decisão</p>
+                                    <p class="text-[10px] text-slate-400 uppercase font-black mt-3 leading-tight tracking-[0.1em]">Mais Agilidade Decisória</p>
                                 </div>
                             </div>
                         </div>
@@ -430,75 +444,75 @@
 
     <!-- Planos Section -->
     <section id="planos" class="py-32 bg-white">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="text-center mb-24">
-                <span class="text-blue-600 font-black uppercase tracking-widest text-[10px] mb-4 block font-outfit">Investimento Estratégico</span>
-                <h2 class="text-5xl md:text-7xl font-black text-slate-900 tracking-tighter uppercase mb-6 font-outfit">NOSSOS <span class="text-blue-600 italic">PLANOS</span></h2>
-                <p class="text-slate-500 text-xl font-medium">Soluções flexíveis para o crescimento escalável da sua empresa.</p>
+        <div class="max-w-7xl mx-auto px-6 text-center mb-24">
+            <span class="text-blue-600 font-black uppercase tracking-widest text-[10px] mb-4 block font-outfit">Investimento Estratégico</span>
+            <h2 class="text-5xl md:text-7xl font-black text-slate-900 tracking-tighter uppercase mb-6 font-outfit">PLANOS DE <span class="text-blue-600 italic">GESTÃO</span></h2>
+            <p class="text-slate-500 text-xl font-medium">BI é o suporte. A entrega é rotina e resultado.</p>
+        </div>
+
+        <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-10">
+            <!-- Plano 1 -->
+            <div class="relative p-10 rounded-[2.5rem] flex flex-col h-full bg-slate-50 border border-slate-100 hover:border-blue-200 transition-all shadow-sm">
+                <h3 class="text-3xl font-black text-slate-900 mb-2 uppercase font-outfit">Clareza</h3>
+                <p class="text-slate-400 text-sm font-bold mb-10">Controle básico (meta, margem e caixa)</p>
+                <div class="flex items-center gap-4 mb-10 pb-8 border-b border-slate-200">
+                    <i data-lucide="clock" class="text-blue-600 w-6 h-6"></i>
+                    <span class="text-xl font-black uppercase italic italic">60–90 dias</span>
+                </div>
+                <ul class="space-y-5 mb-12 flex-grow">
+                    <li class="flex gap-4 text-sm font-bold text-slate-600 items-start"><i data-lucide="check-circle-2" class="text-blue-600 w-5 h-5 flex-shrink-0"></i> Diagnóstico + Prioridades</li>
+                    <li class="flex gap-4 text-sm font-bold text-slate-600 items-start"><i data-lucide="check-circle-2" class="text-blue-600 w-5 h-5 flex-shrink-0"></i> Modelo de Metas Essenciais</li>
+                    <li class="flex gap-4 text-sm font-bold text-slate-600 items-start"><i data-lucide="check-circle-2" class="text-blue-600 w-5 h-5 flex-shrink-0"></i> Ritual Semanal Iniciado</li>
+                    <li class="flex gap-4 text-sm font-bold text-slate-600 items-start"><i data-lucide="check-circle-2" class="text-blue-600 w-5 h-5 flex-shrink-0"></i> 1 Painel de Gestão Focado</li>
+                </ul>
+                <a href="https://wa.me/5551982805652" class="w-full py-5 rounded-2xl font-black uppercase tracking-tight text-center bg-slate-200 text-slate-800 hover:bg-slate-300">Solicitar Proposta</a>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
-                <!-- Plano 1 -->
-                <div class="relative p-10 rounded-[2.5rem] flex flex-col h-full bg-slate-50 border border-slate-100 hover:border-blue-200 transition-all duration-500 shadow-sm">
-                    <h3 class="text-3xl font-black text-slate-900 mb-2 uppercase tracking-tighter font-outfit leading-none">Plano Clareza</h3>
-                    <p class="text-slate-400 text-sm font-bold mb-10">Informação rápida para o dia a dia</p>
-                    <div class="flex items-center gap-4 mb-10 pb-8 border-b border-slate-200 text-slate-900">
-                        <i data-lucide="clock" class="text-blue-600 w-6 h-6"></i>
-                        <span class="text-xl font-black uppercase italic">60–90 dias</span>
-                    </div>
-                    <ul class="space-y-5 mb-12 flex-grow">
-                        <li class="flex gap-4 text-sm font-bold text-slate-600 items-start"><i data-lucide="check-circle-2" class="text-blue-600 flex-shrink-0 w-5 h-5"></i> 1 painel BI (área prioritária)</li>
-                        <li class="flex gap-4 text-sm font-bold text-slate-600 items-start"><i data-lucide="check-circle-2" class="text-blue-600 flex-shrink-0 w-5 h-5"></i> KPIs fundamentais de lucro</li>
-                        <li class="flex gap-4 text-sm font-bold text-slate-600 items-start"><i data-lucide="check-circle-2" class="text-blue-600 flex-shrink-0 w-5 h-5"></i> Conexão com até 2 fontes</li>
-                        <li class="flex gap-4 text-sm font-bold text-slate-600 items-start"><i data-lucide="check-circle-2" class="text-blue-600 flex-shrink-0 w-5 h-5"></i> Workshop de utilização (2h)</li>
-                    </ul>
-                    <a href="https://wa.me/5551982805652" target="_blank" class="w-full py-5 rounded-2xl font-black text-lg uppercase tracking-tight text-center transition-all bg-slate-200 text-slate-800 hover:bg-slate-300 shadow-sm">Solicitar Proposta</a>
+            <!-- Plano 2 -->
+            <div class="relative p-10 rounded-[2.5rem] flex flex-col h-full bg-slate-900 text-white scale-105 z-10 border-2 border-blue-600 shadow-2xl">
+                <div class="absolute -top-5 left-1/2 -translate-x-1/2 bg-blue-600 text-white px-8 py-2 rounded-full text-[10px] font-black uppercase tracking-widest shadow-xl italic">Mais Requisitado</div>
+                <h3 class="text-3xl font-black text-blue-400 mb-2 uppercase font-outfit">Previsão</h3>
+                <p class="text-slate-400 text-sm font-bold mb-10">Performance e Execução Mensal</p>
+                <div class="flex items-center gap-4 mb-10 pb-8 border-b border-white/10">
+                    <i data-lucide="clock" class="text-blue-400 w-6 h-6"></i>
+                    <span class="text-xl font-black uppercase italic">90–120 dias</span>
                 </div>
+                <ul class="space-y-5 mb-12 flex-grow">
+                    <li class="flex gap-4 text-sm font-bold text-slate-200 items-start"><i data-lucide="check-circle-2" class="text-blue-400 w-5 h-5 flex-shrink-0"></i> Rotina Semanal + Mensal</li>
+                    <li class="flex gap-4 text-sm font-bold text-slate-200 items-start"><i data-lucide="check-circle-2" class="text-blue-400 w-5 h-5 flex-shrink-0"></i> KPIs: Comercial, Margem, Caixa</li>
+                    <li class="flex gap-4 text-sm font-bold text-slate-200 items-start"><i data-lucide="check-circle-2" class="text-blue-400 w-5 h-5 flex-shrink-0"></i> 3 a 5 Painéis de Performance</li>
+                    <li class="flex gap-4 text-sm font-bold text-slate-200 items-start"><i data-lucide="check-circle-2" class="text-blue-400 w-5 h-5 flex-shrink-0"></i> Treinamento Contínuo</li>
+                </ul>
+                <a href="https://wa.me/5551982805652" class="w-full py-5 rounded-2xl font-black uppercase tracking-tight text-center bg-blue-600 hover:bg-blue-500 shadow-xl shadow-blue-500/20">Solicitar Proposta</a>
+            </div>
 
-                <!-- Plano 2 -->
-                <div class="relative p-10 rounded-[2.5rem] flex flex-col h-full bg-slate-900 text-white shadow-3xl scale-105 z-10 border-2 border-blue-600">
-                    <div class="absolute -top-5 left-1/2 -translate-x-1/2 bg-blue-600 text-white px-8 py-2 rounded-full text-[10px] font-black uppercase tracking-widest shadow-xl italic">Mais Requisitado</div>
-                    <h3 class="text-3xl font-black text-blue-400 mb-2 uppercase tracking-tighter font-outfit leading-none">Plano Previsão</h3>
-                    <p class="text-slate-400 text-sm font-bold mb-10">Foco em Antecipação e ROI</p>
-                    <div class="flex items-center gap-4 mb-10 pb-8 border-b border-white/10 text-white">
-                        <i data-lucide="clock" class="text-blue-400 w-6 h-6"></i>
-                        <span class="text-xl font-black uppercase italic">90–120 dias</span>
-                    </div>
-                    <ul class="space-y-5 mb-12 flex-grow">
-                        <li class="flex gap-4 text-sm font-bold text-slate-200 items-start"><i data-lucide="check-circle-2" class="text-blue-400 flex-shrink-0 w-5 h-5"></i> 3 a 5 painéis estratégicos</li>
-                        <li class="flex gap-4 text-sm font-bold text-slate-200 items-start"><i data-lucide="check-circle-2" class="text-blue-400 flex-shrink-0 w-5 h-5"></i> KPIs Avançados (ROI, LTV, Churn)</li>
-                        <li class="flex gap-4 text-sm font-bold text-slate-200 items-start"><i data-lucide="check-circle-2" class="text-blue-400 flex-shrink-0 w-5 h-5"></i> Treinamento contínuo (16h)</li>
-                        <li class="flex gap-4 text-sm font-bold text-slate-200 items-start"><i data-lucide="check-circle-2" class="text-blue-400 flex-shrink-0 w-5 h-5"></i> Análise de performance mensal</li>
-                    </ul>
-                    <a href="https://wa.me/5551982805652" target="_blank" class="w-full py-5 rounded-2xl font-black text-lg uppercase tracking-tight text-center transition-all bg-blue-600 text-white hover:bg-blue-500 shadow-xl shadow-blue-200/20">Solicitar Proposta</a>
+            <!-- Plano 3 -->
+            <div class="relative p-10 rounded-[2.5rem] flex flex-col h-full bg-slate-50 border border-slate-100 hover:border-blue-200 transition-all shadow-sm">
+                <h3 class="text-3xl font-black text-slate-900 mb-2 uppercase font-outfit">Inteligência</h3>
+                <p class="text-slate-400 text-sm font-bold mb-10">Escala e Governança (Diretoria)</p>
+                <div class="flex items-center gap-4 mb-10 pb-8 border-b border-slate-200">
+                    <i data-lucide="clock" class="text-blue-600 w-6 h-6"></i>
+                    <span class="text-xl font-black uppercase italic">90–150 dias</span>
                 </div>
-
-                <!-- Plano 3 -->
-                <div class="relative p-10 rounded-[2.5rem] flex flex-col h-full bg-slate-50 border border-slate-100 hover:border-blue-200 transition-all duration-500 shadow-sm">
-                    <h3 class="text-3xl font-black text-slate-900 mb-2 uppercase tracking-tighter font-outfit leading-none">Plano Inteligência</h3>
-                    <p class="text-slate-400 text-sm font-bold mb-10">Liderança de Mercado por Dados</p>
-                    <div class="flex items-center gap-4 mb-10 pb-8 border-b border-slate-200 text-slate-900">
-                        <i data-lucide="clock" class="text-blue-600 w-6 h-6"></i>
-                        <span class="text-xl font-black uppercase italic">90–150 dias</span>
-                    </div>
-                    <ul class="space-y-5 mb-12 flex-grow">
-                        <li class="flex gap-4 text-sm font-bold text-slate-600 items-start"><i data-lucide="check-circle-2" class="text-blue-600 flex-shrink-0 w-5 h-5"></i> Ecossistema único (Data Hub)</li>
-                        <li class="flex gap-4 text-sm font-bold text-slate-600 items-start"><i data-lucide="check-circle-2" class="text-blue-600 flex-shrink-0 w-5 h-5"></i> Modelos de IA preditivos ativos</li>
-                        <li class="flex gap-4 text-sm font-bold text-slate-600 items-start"><i data-lucide="check-circle-2" class="text-blue-600 flex-shrink-0 w-5 h-5"></i> Consultoria de alto nível (32h)</li>
-                        <li class="flex gap-4 text-sm font-bold text-slate-600 items-start"><i data-lucide="check-circle-2" class="text-blue-600 flex-shrink-0 w-5 h-5"></i> Gestão orientada a resultados</li>
-                    </ul>
-                    <a href="https://wa.me/5551982805652" target="_blank" class="w-full py-5 rounded-2xl font-black text-lg uppercase tracking-tight text-center transition-all bg-slate-200 text-slate-800 hover:bg-slate-300 shadow-sm">Solicitar Proposta</a>
-                </div>
+                <ul class="space-y-5 mb-12 flex-grow">
+                    <li class="flex gap-4 text-sm font-bold text-slate-600 items-start"><i data-lucide="check-circle-2" class="text-blue-600 w-5 h-5 flex-shrink-0"></i> Governança & Auditoria</li>
+                    <li class="flex gap-4 text-sm font-bold text-slate-600 items-start"><i data-lucide="check-circle-2" class="text-blue-600 w-5 h-5 flex-shrink-0"></i> Ecossistema Único de Dados</li>
+                    <li class="flex gap-4 text-sm font-bold text-slate-600 items-start"><i data-lucide="check-circle-2" class="text-blue-600 w-5 h-5 flex-shrink-0"></i> Playbooks de Decisão</li>
+                    <li class="flex gap-4 text-sm font-bold text-slate-600 items-start"><i data-lucide="check-circle-2" class="text-blue-600 w-5 h-5 flex-shrink-0"></i> Consultoria Executiva Sênior</li>
+                </ul>
+                <a href="https://wa.me/5551982805652" class="w-full py-5 rounded-2xl font-black uppercase tracking-tight text-center bg-slate-200 text-slate-800 hover:bg-slate-300">Solicitar Proposta</a>
             </div>
         </div>
     </section>
 
     <!-- Final CTA -->
-    <section class="py-24 px-6 relative overflow-hidden bg-white">
+    <section class="py-24 px-6 bg-white">
         <div class="max-w-7xl mx-auto bg-blue-600 rounded-[4rem] p-16 md:p-32 text-center text-white relative overflow-hidden shadow-3xl shadow-blue-300/40">
             <div class="relative z-10 max-w-4xl mx-auto">
-                <h2 class="text-4xl md:text-7xl font-black mb-8 leading-none uppercase tracking-tighter font-outfit">PRONTO PARA <span class="text-blue-900 italic">DECIDIR</span> COM PRECISÃO?</h2>
-                <p class="text-xl md:text-2xl text-blue-100 mb-12 font-medium leading-relaxed max-w-2xl mx-auto leading-relaxed">Não espere pelos relatórios do mês passado para entender o hoje. Automatize sua inteligência agora.</p>
+                <h2 class="text-4xl md:text-7xl font-black mb-8 leading-none uppercase tracking-tighter font-outfit">PRONTO PARA <span class="text-blue-900 italic">DECIDIR</span> E EXECUTAR?</h2>
+                <p class="text-xl md:text-2xl text-blue-100 mb-12 font-medium leading-relaxed max-w-2xl mx-auto">
+                    Chega de olhar relatório atrasado. Vamos implantar uma rotina de gestão simples, com indicadores certos e decisão no tempo certo.
+                </p>
                 <a href="https://wa.me/5551982805652" target="_blank" class="inline-flex items-center gap-5 bg-white text-blue-700 px-14 py-7 rounded-full font-black text-2xl hover:shadow-2xl hover:scale-105 active:scale-95 transition-all shadow-xl uppercase tracking-tighter">
                     <i data-lucide="message-circle" class="w-10 h-10 text-green-500"></i> AGENDAR AGORA
                 </a>
@@ -514,9 +528,9 @@
                 <div class="max-w-sm text-center lg:text-left">
                     <div class="flex items-center justify-center lg:justify-start space-x-2 mb-8">
                         <div class="w-12 h-12 bg-blue-600 rounded-2xl flex items-center justify-center text-white font-black shadow-lg shadow-blue-200 italic">DVX</div>
-                        <span class="text-2xl font-black tracking-tighter text-slate-900 uppercase font-outfit uppercase tracking-tight">DATA<span class="text-blue-600">VISIONX</span></span>
+                        <span class="text-2xl font-black tracking-tighter text-slate-900 uppercase font-outfit">DATA<span class="text-blue-600">VISIONX</span></span>
                     </div>
-                    <p class="text-slate-500 text-lg font-bold mb-10 leading-relaxed">Consultoria Estratégica & Business Intelligence para o mercado de alta performance.</p>
+                    <p class="text-slate-500 text-lg font-bold mb-10 leading-relaxed">Consultoria de Gestão orientada por dados. BI é a ferramenta — a entrega é resultado.</p>
                     <div class="flex justify-center lg:justify-start gap-6">
                         <a href="https://www.instagram.com/datavisionxrs/" target="_blank" class="w-14 h-14 bg-white rounded-2xl shadow-xl flex items-center justify-center text-slate-400 hover:text-pink-600 hover:scale-110 transition-all border border-slate-100"><i data-lucide="instagram" class="w-6 h-6"></i></a>
                         <a href="http://linkedin.com/in/alberto-rossi-13839125" target="_blank" class="w-14 h-14 bg-white rounded-2xl shadow-xl flex items-center justify-center text-slate-400 hover:text-blue-700 hover:scale-110 transition-all border border-slate-100"><i data-lucide="linkedin" class="w-6 h-6"></i></a>
@@ -529,22 +543,16 @@
                         <ul class="space-y-5 text-sm font-black text-slate-500 uppercase tracking-tight">
                             <li><a href="#home" class="hover:text-blue-600 transition-colors">Página Inicial</a></li>
                             <li><a href="#sobre" class="hover:text-blue-600 transition-colors">O Fundador</a></li>
-                            <li><a href="#cases" class="hover:text-blue-600 transition-colors">Cases de Sucesso</a></li>
-                            <li><a href="#servicos" class="hover:text-blue-600 transition-colors">Nossos Serviços</a></li>
+                            <li><a href="#cases" class="hover:text-blue-600 transition-colors">Cases</a></li>
+                            <li><a href="#servicos" class="hover:text-blue-600 transition-colors">Serviços</a></li>
+                            <li><a href="#planos" class="hover:text-blue-600 transition-colors">Planos</a></li>
                         </ul>
                     </div>
                     <div class="text-center sm:text-left">
-                        <h4 class="font-black text-slate-900 mb-10 uppercase text-xs tracking-[0.3em] pb-4 border-b border-slate-200 font-outfit">Contacto Direto</h4>
+                        <h4 class="font-black text-slate-900 mb-10 uppercase text-xs tracking-[0.3em] pb-4 border-b border-slate-200 font-outfit">Contato Direto</h4>
                         <div class="flex items-center justify-center sm:justify-start gap-6">
-                            <!-- Link de E-mail corrigido -->
-                            <button onclick="triggerEmail()" class="inline-flex items-center justify-center w-16 h-16 bg-white rounded-[1.5rem] shadow-2xl border border-slate-100 text-blue-600 hover:bg-blue-600 hover:text-white hover:-translate-y-1.5 transition-all duration-500 group outline-none" title="Enviar e-mail">
-                                <i data-lucide="mail" class="w-8 h-8 stroke-[2.5px]"></i>
-                            </button>
-                            
-                            <!-- Link de WhatsApp -->
-                            <a href="https://wa.me/5551982805652" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center w-16 h-16 bg-white rounded-[1.5rem] shadow-2xl border border-slate-100 text-green-500 hover:bg-green-500 hover:text-white hover:-translate-y-1.5 transition-all duration-500 group" title="Chamar no WhatsApp">
-                                <i data-lucide="message-circle" class="w-8 h-8 stroke-[2.5px]"></i>
-                            </a>
+                            <a href="mailto:datavvisionx@gmail.com" class="inline-flex items-center justify-center w-16 h-16 bg-white rounded-[1.5rem] shadow-2xl border border-slate-100 text-blue-600 hover:bg-blue-600 hover:text-white hover:-translate-y-1.5 transition-all duration-500"><i data-lucide="mail" class="w-8 h-8"></i></a>
+                            <a href="https://wa.me/5551982805652" target="_blank" class="inline-flex items-center justify-center w-16 h-16 bg-white rounded-[1.5rem] shadow-2xl border border-slate-100 text-green-500 hover:bg-green-500 hover:text-white hover:-translate-y-1.5 transition-all duration-500"><i data-lucide="message-circle" class="w-8 h-8"></i></a>
                         </div>
                     </div>
                 </div>
@@ -565,7 +573,7 @@
         lucide.createIcons();
 
         // Efeito Navbar Scroll
-        window.onscroll = function() {
+        window.addEventListener('scroll', function() {
             const nav = document.getElementById('navbar');
             if (window.pageYOffset > 50) {
                 nav.classList.add('glass-nav', 'shadow-md', 'py-4');
@@ -574,7 +582,7 @@
                 nav.classList.remove('glass-nav', 'shadow-md', 'py-4');
                 nav.classList.add('py-6');
             }
-        };
+        });
 
         // Menu Mobile Toggle
         function toggleMenu() {
@@ -595,13 +603,6 @@
                 item.classList.add('active');
             }
         }
-
-        // Função de Disparo de E-mail (mailto) corrigida para evitar resets de página
-        function triggerEmail() {
-            const email = 'datavvisionx@gmail.com';
-            window.location.href = `mailto:${email}`;
-        }
     </script>
 </body>
-
 </html>
